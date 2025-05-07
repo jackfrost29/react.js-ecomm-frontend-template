@@ -8,4 +8,4 @@ This is a ecommerce template for clothing/appareals/fashion wears built using re
 6. The App uses react router to handle all routes in the frontend without any interference from backend. Details about routes can be fount in the prompt file.
 7. The Philosophy behind the project was "Using AI to ease the life of a software Developer", so that help could have been taken from AI agent to build all the UI/CSS to give the developer a headstart.
 
-### Incomplete (source code will be uploaded later).
+### Incomplete (source code will be uploaded later at the earliest convenience).
