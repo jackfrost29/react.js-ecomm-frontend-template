@@ -1,0 +1,91 @@
+The prompt given  below has an outlined structure explained below:
+[1, 2, 3, 4, …]- Indicates a major topic of the Prompt
+[A, B, C, D, …] indicates subtopics under those major points, e.g 1.A, 2.A
+[I, ii, iii, …….] indicates further subdivision of those subtopics, e.g 1.A.ii, 3.B.iv, etc.
+If the we need further subdivision, we used [1, 2, 3, 4, …..] again, e.g 1.B.ii.1, 2.B.iii.2, etc.
+‘-‘ (hyphen indicates detailed explanation of a topic/subtopic.
+
+
+### PROMPT ###
+Generate the source code for a clothing/apparel/fashion e-commerce website in react.js. The app will let customers Browse products with filtering & sorting capabilities, make purchases, track orders, and leave reviews. Customers will also have the option to log into the system and maintain a user profile.
+Below are the detailed requirements and explanations for each feature:
+
+1. Structure of the system:
+- Generate the code for the front-end only. Use “react.js” library to create the app.
+-Use minimal business logic and dummy data/placeholder wherever necessary. For now I need the frontend layout with basic navigation. The business logic will be manually injected later. All required data will be provided later using an API.
+-when creating the javascript file for the app, use “.js” format (instead of “.jsx” or “.tsx”).
+-all the data required for the app will be located in ‘./src/data/product.json’. The ‘product.json’ file will contain a json array containing json objects, where each of the json objects will contain all the information about an individual product. A sample demo format if the json object is given below:
+{
+    "availableSizes": ["X", “L", “XL", “XXL"],
+    "currencyFormat": "$",
+    "currencyId": "USD",
+    "description": "14/15 s/nº",
+    "id": 0,
+    "installments": 9,
+    "isFreeShipping": true,
+    "price": 10.9,
+    "sku": 8552515751438644,
+    "style": "White T-shirt",
+    "title": "Cropped Stay Groovy off white"
+  }
+- The location of the image of the product is “./src/static/products/<sku>-1-product.webp” where <sku> is the sku code in the above json object for a particular product. 
+
+2. Themes & appearences: System wide themes
+2.A theme/appearance: use plain black and white theme. All backgrounds should be white, all text/buttons/headings, svg-icons should be black (unless specified otherwise).
+2.B Font-family: Use Luis Vuiton font family (regular) for everything. The font will be located on ‘./public/fonts/louis-vuitton/louis-vuitton-regullar.ttf’. If variations other than regular (bold, italic, etc) are required, they will be specified later.
+
+3. Overall Architecture: These features can be considered global features of the component. They will always remain in the app no matter the route. These features include:
+3.A. Top navigation bar: The navigation bar should disappear when scrolling down. But it should reappear on scrolling up. The bar will have 3 sections.
+3.A.i Left: it will have the horizontal menu bar, and search options, in that order, group together on the left of the page. Keep both icons and text beside them in the web view, but remove the text and keep the icon only in mobile view/smaller screen size (use responsive design/css media query to do that).
+3.A.i.1 menu bar: The menu bar will be 3 horizontal line. When pressed, it will open a slide on the left of the screen (over the existing component, blurring the background). The menu options is mainly a shopping utility. The menu options will represent product categories, e.g men, weman, kids, etc.
+- Each Menu option may have nested categories, e.g: option “men” may have categories like {formal, casual, accessories} etc.
+- the options will have it’s name (text) and downward arrow (without arrow tail) placed side by side.
+- Clicking on the name text will route to the shopping page, listing all the products after applying that specific filter. Details of the shopping page will be displayed later. 
+-Clicking on the arrow beside the text will open the nested subcategories under the menu option. The subcategories will be injected below the parent menu option, with a slight left indentation. Clicking on the arrow again will close the subcategories. Opening and closing of the subcategories should have smooth animation effect with rotation of the arrow (upward when opening the subcategory, downward when closing it).
+
+3.A.i.2 Search option:
+- The search option, upon clicking, will open a text area. To be exact, the text area will be opened in the space between the menu option and the app logo.
+- The size of the text area will be adequate for 3/4 words, if more text is required, the header of the search text in the left will be hidden to show the right portion, keeping the search text area fixed.
+- below the search text area, a rectangular box is to be opened that will show the suggestions according the entered search text. The area of the rectangular box will be 1/8th of the screen size (approx..).
+-In mobile view/small screen, the search text area will be inflated right below the various menu options and logos in the navbar, taking almost the whole of the screen width (85% appx).
+3.A.ii Middle: The logo of out app will be placed, at the dead center of the navigation bar. The location for the logo is ‘./public/logo/logo.png’.
+	
+3.A.iii Right: On the right there will be the contact-us, store-locator, cart and my-account options, in that order, grouped together towards the right of the page. Use text only for contact-us option, for other three options, use icons only.
+- The “contact us” text will be hidden in the mobile display. Other icons will remain the same.
+-Clicking/pressing each icons will route the user to the appropriate location, which will be described later.
+
+3.B Footer section at the bottom: This portion will have the necessary links, copyrights and other options, typical of any ecommerce website’s footer section. It will be at the bottom of the page. Feel free to improvise.
+
+4. Main sections of the app: They can also be considered pages/components. Each of them should have a distinct route. They will be placed in the space between the top navigation bar and the bottom footer. The sections are described below.
+
+4.A Homepage (Route- ‘/’): The homepage should be like any other ecommerce website. It will have different subsections and dialog notifications. It will have ‘trending’, ‘new-arrivals’, ‘mission and vision’, And other marketing gimmicks. Display product cards in 1 or 2 rows in grids in the ‘new-arrival’ and ‘top-pick’ sections. Use appropriate backgrounds/shades, font-sizes (bigger if necessary) and animations wherever necessary.
+
+4.B shopping page(route- ‘/shop’): this is the component where all the products (after applying filters) will be displayed. 
+-The url will have key value parameters (separated by ‘&’ sign) indicating the filters (e.g: latest=true&gender=F). These url params will not have any server side consequence, but they will be handled by the react app and the params from the react app will be captured by the react app and applied accordingly into the filter. Rules of valid params will be later manually declared inside the source code.
+-The shopping page should display the product-cards in some form of grid display. For web view, display an appropriate number of columns of product cards (e.g 3 or 4 or 5, depending on the screen width). For mobile display, 1 card per row should be enough for now.
+-the top right of the shopping page should contain 2 icons, “sort” and “filter”.
+-The sort button, upon click/tap, should open up a option menu right below it, displaying various ecommerce sorting options.
+-The filter button has to be located right after the sort icon. Upon clicking the filter button, a sliding bar should be opened from the right of the screen, blurring the background and displaying various filtering options, in typical structure. The filtering options should include various options appropriate for clothing/apparel products, e.g: size, price, gender, etc. At the bottom of the sliding bar, there should be buttons for “apply” and “reset” options. The sliding bar should take in between10-20 % of the screen width (depending on how big the screen is) in web view. In mobile view, it should take up much larger width, 80% apprx.
+4.B.i Product Card: The Product Card should be like typical product cards, square in shape with suitable margin between them.
+-As it’s a garment/clothing product, it should have all the relevant informations in the product card, like ‘on sale’, ‘previous price’ (marked in red), ‘new price’ (decremented), colors etc. Other details will be added manually. 
+-Upon clicking the product card, the user should be taken to the product details page.
+
+4.C Product details (route- ‘/product?id=<random_hash>): This page will contain details about a product. Infos like photos about the product (have a tray option for multiple photo but display only one photo in top), sizes, colors, quantity, add to cart, details, technical specifications, warranty/guaranty, refund policies, reviews etc. make the design elegant yet simple.
+4.D Cart (route- ‘/cart’): This place will display all the detailed information about items added to the shopping cart, it will display the cost, quantity, deletion option, and checkout option etc. Feel free to improvise, but keep the design elegant yet simple.
+
+4.E Checkout page (route- ‘/checkout’): this page will hold all features of a typical checkout option, e.g
+-form to take input from the customers. If the customer is logged in, some of the infos will be autofilled by the system (described later)
+-delivery location+ contact no.
+-brief summary about the purchase and cost.
+-payment methods selection options.
+- Proceed to payment button.
+
+4.F Payment gateway (route- ‘/pay’): Create a layout for payment gateway. Upon payment, the page should display success message. The actual gateway API will be added later manually. Make the design simple yet elegant and responsive/mobile ready.
+
+4.G Profile page (route- ‘/profile?user=<user_id>’) : Make a profile page for a ecommerce service user. Keep editing options with photos, names, address, contacts, password change etc. Make the design simple yet elegant. Make the page layout responsive for  both web and mobile displays.
+
+4.F: Add some other routes to the page. Like ‘about-us’, ‘store-locator’, ‘terms-and-conditions’, ‘outlets’, return-policy’. Link to these pages should be present in the footer section of the app. Keep the design simple yet elegant. Make the design responsive for both web and mobile layouts.
+
+5. After generating the source code for the web app, build me a cross platform (android/ios) mobile app with the functionalities described above. 
+-Use react.navite for the mobile app. As noted in the above points, I need the frontend only, Use minimal business logic/dummy data wherever possible. The required data will be fetched by the app via api calls, which facility will be integrated later.
+-The structure of the cross-platform app should be same as the above web app features. In fact, make the layout and navigation of the mobile app same as the mobile/responsive version of the above-mentioned web app. In other words, the cross-platform app will be a clone of the mobile version of the above-mentioned web app.

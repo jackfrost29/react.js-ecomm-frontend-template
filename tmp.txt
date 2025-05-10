@@ -1,0 +1,11 @@
+Following .js files are not yet generated. Please generate them (others have been already generated)
+(Also please keep the directory structure you created at the beginning of this chat.)
+
+ProductDetail.js
+Profile.js
+Checkout.js
+Cart.js
+
+About.js
+Terms.js
+Stores.js

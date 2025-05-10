@@ -1,0 +1,56 @@
+src/
+├── App.js
+├── index.js
+├── data/
+│   └── products.json
+├── components/
+│   ├── Header/
+│   │   ├── Header.js
+│   │   ├── Menu.js
+│   │   ├── Search.js
+│   │   └── styles.css
+│   ├── Footer/
+│   │   ├── Footer.js
+│   │   └── styles.css
+│   ├── ProductCard/
+│   │   ├── ProductCard.js
+│   │   └── styles.css
+│   ├── Filter/
+│   │   ├── Filter.js
+│   │   └── styles.css
+│   └── Sort/
+│       ├── Sort.js
+│       └── styles.css
+├── pages/
+│   ├── Home/
+│   │   ├── Home.js
+│   │   └── styles.css
+│   ├── Shop/
+│   │   ├── Shop.js
+│   │   └── styles.css
+│   ├── ProductDetail/
+│   │   ├── ProductDetail.js
+│   │   └── styles.css
+│   ├── Cart/
+│   │   ├── Cart.js
+│   │   └── styles.css
+│   ├── Checkout/
+│   │   ├── Checkout.js
+│   │   └── styles.css
+│   ├── Payment/
+│   │   ├── Payment.js
+│   │   └── styles.css
+│   ├── Profile/
+│   │   ├── Profile.js
+│   │   └── styles.css
+│   └── StaticPages/
+│       ├── About.js
+│       ├── Stores.js
+│       ├── Terms.js
+│       └── styles.css
+├── static/
+│   └── products/
+│       └── [product images]
+└── styles/
+    ├── global.css
+    └── theme.css
